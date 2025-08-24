@@ -1,0 +1,19 @@
+import { createSessionClient } from "~/server/lib/appwrite";
+
+export default defineEventHandler(async (event) => {
+    if (event.node.req.url === "/orders") {
+        const { account } = createSessionClient(event);
+
+        try {
+            event.context.user = await account.get();
+            console.log(
+                "(server/middleware/auth.ts) Middleware Ran 2:",
+                event.context.user
+            );
+        } catch (error) {
+            console.error(
+                "(server/middleware/auth.ts) Keine aktive Appwrite-Session."
+            );
+        }
+    }
+});

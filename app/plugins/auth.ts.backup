@@ -1,0 +1,17 @@
+// plugins/auth.ts
+import { useAuthStore } from "~/stores/auth";
+
+export default defineNuxtPlugin(async (nuxtApp) => {
+    const authStore = useAuthStore(nuxtApp.$pinia);
+
+    nuxtApp.hook("app:beforeMount", () => {
+        console.log("app:beforeMount");
+        authStore.checkAuth();
+    });
+
+    // Erneute Prüfung bei Routenwechsel (client-side)
+    nuxtApp.hook("page:start", () => {
+        console.log("page:start");
+        authStore.checkAuth();
+    });
+});

@@ -1,0 +1,24 @@
+export default defineEventHandler((event) => {
+    if (event.node.req.url === "/orders") {
+        event.context.auth = { user: true };
+        const user = event.context.auth.user;
+
+        if (!user) {
+            console.log("(server/middleware/log.ts) User not logged in");
+            return sendRedirect(event, "/login", 302);
+        } else {
+            console.log("(server/middleware/log.ts) User logged in");
+            console.log(
+                `(server/middleware/log.ts) Accessing Orders page at ${new Date().toISOString()}`
+            );
+            console.log(
+                "(server/middleware/log.ts) Middleware Ran 1:",
+                getRequestURL(event)
+            );
+            console.log(
+                "(server/middleware/log.ts) Middleware Ran 2:",
+                event.context.auth.user
+            );
+        }
+    }
+});

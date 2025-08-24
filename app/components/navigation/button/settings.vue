@@ -1,0 +1,9 @@
+<template>
+    <UButton
+        to="/profile/settings"
+        icon="i-heroicons-cog-6-tooth-16-solid"
+        square
+        variant="soft"
+        color="primary"
+    />
+</template>

@@ -1,0 +1,77 @@
+import { defineStore } from "pinia";
+
+interface User {
+    id: string;
+    name: string;
+    email: string;
+}
+
+interface AuthState {
+    loggedIn: boolean;
+    user: User | null;
+    error: string | null;
+}
+
+export const useAuthStore = defineStore("auth", {
+    state: (): AuthState => {
+        console.log("(stores/auth.ts) 1st Initializing auth store state");
+        return {
+            loggedIn: false,
+            user: null,
+            error: null,
+        };
+    },
+    getters: {
+        isAuthenticated(state): boolean {
+            console.log(
+                "(stores/auth.ts) isAuthenticated getter called",
+                state.loggedIn,
+                state.user
+            );
+            return state.loggedIn && state.user !== null;
+        },
+        username(state): string {
+            console.log(
+                "(stores/auth.ts) Username getter called",
+                state.user?.name
+            );
+            return state.user?.name || "Guest";
+        },
+    },
+    actions: {
+        setLoggedIn(value: boolean) {
+            this.loggedIn = value;
+            /* console.log("(stores/auth.ts) setLoggedIn():", value); */
+        },
+        setUser(value: User | null) {
+            this.user = value;
+            /* console.log("(stores/auth.ts) setUser():", value); */
+        },
+        async checkAuth() {
+            console.log(
+                "(stores/auth.ts) checkAuth():",
+                process.server ? "on server" : "on client"
+            );
+
+            try {
+                const response = await $fetch("/api/auth");
+                console.log("(stores/auth.ts) Full Auth response:", response);
+
+                if (response.success) {
+                    console.log(
+                        "(stores/auth.ts) Login successful, updating auth state..."
+                    );
+                    this.setLoggedIn(true);
+                    this.setUser(response.user);
+                } else {
+                    this.setLoggedIn(false);
+                    this.setUser(null);
+                }
+            } catch (error) {
+                console.error("(stores/auth.ts) Error in checkAuth:", error);
+                this.setLoggedIn(false);
+                this.setUser(null);
+            }
+        },
+    },
+});
