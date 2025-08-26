@@ -1,18 +1,18 @@
 import { defineNuxtPlugin, useCookie } from "#imports";
 import { SESSION_COOKIE } from "~~/server/lib/appwrite";
-import { useAuth2Store } from "@/stores/auth2";
+import { useAuthStore } from "@/stores/auth";
 
 export default defineNuxtPlugin(async (nuxtApp) => {
     try {
-        const auth2Store = useAuth2Store();
+        const authStore = useAuthStore();
         const sessionToken = useCookie<string | null>(SESSION_COOKIE);
 
         if (sessionToken.value) {
             try {
                 console.log("(plugins) sessionToken found");
-                auth2Store.updateAuthStatus(sessionToken.value);
+                authStore.updateAuthStatus(sessionToken.value);
                 console.log("(plugins) updated Auth Status");
-                //await auth2Store.getUser();
+                //await authStore.getUser();
             } catch (error) {
                 console.error("Failed to fetch user data:", error);
             }
@@ -24,9 +24,9 @@ export default defineNuxtPlugin(async (nuxtApp) => {
             //console.log("(plugins) test 2");
             if (sessionToken.value) {
                 console.log("(plugins) getUser 2");
-                //auth2Store.updateAuthStatus(sessionToken.value);
+                //authStore.updateAuthStatus(sessionToken.value);
 
-                //await auth2Store.checkAuthStatus();
+                //await authStore.checkAuthStatus();
             }
         });
     } catch (error) {

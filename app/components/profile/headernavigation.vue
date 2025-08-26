@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const links = [
+const items = [
     {
         label: "Konto",
         to: "/profile",
@@ -12,11 +12,11 @@ const links = [
 </script>
 
 <template>
-    <UHorizontalNavigation :links="links">
-        <template #default="{ link }">
-            <span class="group-hover:text-primary relative">{{
-                link.label
-            }}</span>
-        </template>
-    </UHorizontalNavigation>
+    <UNavigationMenu 
+        highlight 
+        highlight-color="primary" 
+        orientation="horizontal" 
+        :items="items" 
+        class="data-[orientation=horizontal]:border-b border-default data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48"
+    />
 </template>

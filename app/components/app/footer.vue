@@ -9,7 +9,7 @@
                         color="primary"
                         square
                         variant="solid"
-                        to="/x"
+                        to="/"
                         target="_blank"
                         size="xl"
                     />
@@ -18,7 +18,7 @@
                     <UButton
                         variant="solid"
                         color="primary"
-                        to="/youtube"
+                        to="/"
                         target="_blank"
                         size="xl"
                         >YouTube</UButton
@@ -28,7 +28,7 @@
                     <UButton
                         variant="solid"
                         color="primary"
-                        to="/linkedin"
+                        to="/"
                         target="_blank"
                         size="xl"
                         >LinkedIn</UButton
@@ -38,7 +38,7 @@
                     <UButton
                         variant="solid"
                         color="primary"
-                        to="/github"
+                        to="/"
                         target="_blank"
                         size="xl"
                         >GitHub</UButton
@@ -48,7 +48,7 @@
                     <UButton
                         variant="solid"
                         color="primary"
-                        to="/instagram"
+                        to="/"
                         target="_blank"
                         size="xl"
                         >Instagram</UButton
@@ -58,7 +58,7 @@
                     <UButton
                         variant="solid"
                         color="primary"
-                        to="/facebook"
+                        to="/"
                         target="_blank"
                         size="xl"
                         >Facebook</UButton
@@ -68,7 +68,7 @@
                     <UButton
                         variant="solid"
                         color="primary"
-                        to="/discord"
+                        to="/"
                         target="_blank"
                         size="xl"
                         >Discord</UButton
@@ -93,27 +93,27 @@
                     </li>
                     <li>
                         <ULink
-                            to="/imprint"
+                            to="/"
                             active-class="text-primary"
-                            inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                            inactive-class="text-neutral-500 dark:text-neutral-400 hover:text-gray-700 dark:hover:text-gray-200"
                         >
                             Impressum
                         </ULink>
                     </li>
                     <li>
                         <ULink
-                            to="/datenschutz"
+                            to="/"
                             active-class="text-primary"
-                            inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                            inactive-class="text-neutral-500 dark:text-neutral-400 hover:text-gray-700 dark:hover:text-gray-200"
                         >
                             Datenschutz
                         </ULink>
                     </li>
                     <li>
                         <ULink
-                            to="/cookies"
+                            to="/"
                             active-class="text-primary"
-                            inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                            inactive-class="text-neutral-500 dark:text-neutral-400 hover:text-gray-700 dark:hover:text-gray-200"
                         >
                             Cookies
                         </ULink>

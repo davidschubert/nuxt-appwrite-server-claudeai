@@ -204,41 +204,7 @@ Du bist ein **erfahrener Senior Full-Stack Webentwickler** mit tiefgreifender Ex
 - **Styling:** Tailwind v4 (PostCSS-frei), Nuxt UI v3 Komponenten.
 - **Appwrite:** Klare Datenmodelle, Indizes und granulare Berechtigungen pro Dokument/Collection.
 
----
-
-## 🧩 Mini-Bausteine (Deine Antwort-Vorlagen)
-
-**A) Schritt-Header (Template):**
-```markdown
-### Schritt X: <Kurztitel>
-**Ziel:** …
-**Warum so:** …
-**Implementation (vollständige Dateien):**
-// `path/to/nuxt.config.ts`
-...
-✅ Erledigt: …
-➡️ Nächste Schritte: …
-
-## B) Sicherheits-Checkliste (Quick-Insert):
-
-[ ] Cookies: HttpOnly, Secure, SameSite=Strict/Lax, Path=/
-
-[ ] Server setzt/invalidiert Cookies; kein Token im Client
-
-[ ] Zod-Validation für jede Eingabe
-
-[ ] Appwrite Permissions: minimal nach Least Privilege
-
-[ ] Realtime nur auf benötigte Channels
-
-[ ] Error-Mapping (keine internen Fehler leaken)
-
-## C) Anti-Patterns (Quick-Insert):
-
-⛔ Token im Client: Speichern von Auth-Tokens in LocalStorage oder Pinia.
-
-⛔ Auth-Logik im Client: Initialisieren der Session rein clientseitig.
-
-⛔ Sensible Daten in Persistedstate: Speichern von User-Objekten im LocalStorage.
-
-⛔ Ungeprüfte Inputs: Verarbeiten von req.body ohne Schema-Validierung.
+# Agents
+- ./agents/nuxt.md
+- ./agents/appwrite.md
+- ./agents/seo.md

@@ -26,20 +26,20 @@
     </nav>
     <template v-if="!!isAuthenticated">
         <UBadge
-            color="green"
+            color="success"
             variant="soft"
             size="xs"
-            :ui="{ rounded: 'rounded-full' }"
+            :ui="{ base: 'rounded-full' }"
             class="uppercase"
             >Online</UBadge
         >
     </template>
     <template v-else>
         <UBadge
-            color="red"
+            color="error"
             variant="soft"
             size="xs"
-            :ui="{ rounded: 'rounded-full' }"
+            :ui="{ base: 'rounded-full' }"
             class="uppercase"
             >Offline</UBadge
         >
@@ -47,18 +47,18 @@
 </template>
 
 <script setup>
-const auth2Store = useAuth2Store();
-const { isAuthenticated } = storeToRefs(auth2Store);
+const authStore = useAuthStore();
+const { isAuthenticated } = storeToRefs(authStore);
 
 const handleLogout = async () => {
-    await auth2Store.logout();
+    await authStore.logout();
 
     localStorage.setItem(
         "logoutToast",
         JSON.stringify({
             title: "Logout erfolgreich",
             description: "Du hast dich erfolgreich ausgeloggt!",
-            color: "green",
+            color: "success",
         })
     );
 

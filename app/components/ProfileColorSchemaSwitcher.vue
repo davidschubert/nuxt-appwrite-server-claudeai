@@ -1,18 +1,19 @@
 <script setup lang="ts">
-const theme = [
-    {
-        name: "Hell",
-        value: "light",
-    },
-    {
-        name: "Dunkel",
-        value: "dark",
-    },
-    {
-        name: "Automatisch",
-        value: "system",
-    },
-];
+const items = ref([
+  {
+    label: 'Hell',
+    value: 'light'
+  },
+  {
+    label: 'Dunkel',
+    value: 'dark'
+  },
+  {
+    label: 'Automatisch',
+    value: 'system'
+  }
+])
+const value = ref('system')
 </script>
 
 <template>
@@ -21,8 +22,9 @@ const theme = [
             <USelect
                 id="color-mode"
                 v-model="$colorMode.preference"
-                :options="theme"
-                option-attribute="name"
+                :items="items"
+                items-attribute="name"
+                class="w-48"
             />
         </ColorScheme>
     </ClientOnly>

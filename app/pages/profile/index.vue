@@ -7,8 +7,8 @@
                     <h1 class="text-2xl">Profile</h1>
                 </template>
 
-                <div v-if="auth2Store.isLoading">Lade Benutzerdaten...</div>
-                <div v-else-if="!auth2Store.isAuthenticated" class="space-y-4">
+                <div v-if="authStore.isLoading">Lade Benutzerdaten...</div>
+                <div v-else-if="!authStore.isAuthenticated" class="space-y-4">
                     <p>
                         Bitte melde dich an oder registriere dich, um dein
                         Profil zu sehen.
@@ -20,10 +20,10 @@
                         <UButton to="/account/signup">Register</UButton>
                     </div>
                 </div>
-                <div v-else-if="auth2Store.isAuthenticated && auth2Store.user">
+                <div v-else-if="authStore.isAuthenticated && authStore.user">
                     <ProfileInfo class="mb-8" />
-                    <p>Willkommen {{ auth2Store?.user?.name }}</p>
-                    <pre>{{ auth2Store?.user }}</pre>
+                    <p>Willkommen {{ authStore?.user?.name }}</p>
+                    <pre>{{ authStore?.user }}</pre>
                 </div>
                 <div v-else>Keine Benutzerinformationen vorhanden.</div>
             </UCard>
@@ -32,5 +32,5 @@
 </template>
 
 <script setup lang="ts">
-const auth2Store = useAuth2Store();
+const authStore = useAuthStore();
 </script>

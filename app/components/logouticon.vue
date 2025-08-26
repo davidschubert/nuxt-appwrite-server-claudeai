@@ -10,17 +10,17 @@
 </template>
 
 <script setup lang="ts">
-const auth2Store = useAuth2Store();
+const authStore = useAuthStore();
 
 const handleLogout = async () => {
-    await auth2Store.logout();
+    await authStore.logout();
 
     localStorage.setItem(
         "logoutToast",
         JSON.stringify({
             title: "Logout erfolgreich",
             description: "Du hast dich erfolgreich ausgeloggt!",
-            color: "green",
+            color: "success",
         })
     );
 

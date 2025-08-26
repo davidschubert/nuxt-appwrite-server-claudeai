@@ -25,11 +25,7 @@ const {
                                 v-if="status === 'pending'"
                                 icon="i-heroicons-photo"
                                 size="3xl"
-                                :ui="{
-                                    icon: {
-                                        base: 'text-pink-400 dark:text-pink-400',
-                                    },
-                                }"
+                                class="text-pink-400 dark:text-pink-400"
                             />
                             <UAvatar
                                 v-else-if="error"
@@ -38,7 +34,7 @@ const {
                             />
                             <UAvatar
                                 v-else
-                                :alt="data?.user?.name"
+                                :alt="userData?.user?.name"
                                 size="3xl"
                             />
                         </div>
@@ -57,7 +53,7 @@ const {
 
                 <template v-else-if="status === 'error'">
                     <UTooltip
-                        :text="error.statusCode + ' – ' + error.statusMessage"
+                        :text="error?.statusCode + ' – ' + error?.statusMessage"
                     >
                         <p>
                             Du bist nicht eingeloggt. Bitte melde dich an oder
@@ -77,7 +73,7 @@ const {
 
                 <template #footer>
                     <div class="flex justify-end space-x-2">
-                        <UButton v-if="!error" variant="ghost" @click="refresh"
+                        <UButton v-if="!error" variant="ghost" @click="() => refresh()"
                             >Refresh</UButton
                         >
                     </div>

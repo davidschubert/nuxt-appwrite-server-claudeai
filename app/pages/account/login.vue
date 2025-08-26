@@ -12,7 +12,7 @@
                     class="space-y-4"
                     @submit.prevent="onSubmit"
                 >
-                    <UFormGroup
+                    <UFormField
                         label="Deine E-Mail-Adresse"
                         name="email"
                         required
@@ -29,20 +29,20 @@
                                     : undefined
                             "
                         />
-                    </UFormGroup>
-                    <UFormGroup label="Dein Passwort" name="password" required>
+                    </UFormField>
+                    <UFormField label="Dein Passwort" name="password" required>
                         <UInput
                             v-model.trim="state.password"
                             type="password"
                             autocomplete="current-password"
                             icon="i-heroicons-lock-closed"
                         />
-                    </UFormGroup>
+                    </UFormField>
                     <p>
                         <ULink
                             to="/account/signup"
                             active-class="text-primary"
-                            inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm"
+                            inactive-class="text-neutral-500 dark:text-neutral-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm"
                         >
                             Passwort vergessen?
                         </ULink>
@@ -59,7 +59,7 @@
                     <ULink
                         to="/account/signup"
                         active-class="text-primary"
-                        inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                        inactive-class="text-neutral-500 dark:text-neutral-400 hover:text-gray-700 dark:hover:text-gray-200"
                     >
                         Jetzt erstellen
                     </ULink>
@@ -78,7 +78,7 @@ definePageMeta({
 import { z } from "zod";
 import type { FormSubmitEvent } from "#ui/types";
 
-const auth2Store = useAuth2Store();
+const authStore = useAuthStore();
 const toast = useToast();
 
 const schema = z.object({
@@ -109,14 +109,14 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) => {
 
     loading.value = true;
     try {
-        await auth2Store.login(event.data);
+        await authStore.login(event.data);
 
-        if (auth2Store.isAuthenticated) {
-            await auth2Store.getUser();
+        if (authStore.isAuthenticated) {
+            await authStore.getUser();
             toast.add({
                 title: "Erfolg",
                 description: "Login erfolgreich!",
-                color: "green",
+                color: "success",
             });
 
             await navigateTo("/account/profile");
@@ -125,7 +125,7 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) => {
                 title: "Login Fehler",
                 description:
                     "Bitte überprüfe die E-Mail-Adresse und das Passwort!",
-                color: "red",
+                color: "error",
             });
         }
     } catch (error) {
@@ -134,7 +134,7 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) => {
         toast.add({
             title: "Login Fehler",
             description: "Bitte überprüfe die E-Mail-Adresse und das Passwort.",
-            color: "red",
+            color: "error",
         });
     } finally {
         loading.value = false;

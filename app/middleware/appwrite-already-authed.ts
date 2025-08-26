@@ -1,15 +1,15 @@
 export default defineNuxtRouteMiddleware(async (to, from) => {
-    const auth2Store = useAuth2Store();
+    const authStore = useAuthStore();
 
     // Warte auf die Authentifizierungsprüfung
-    //await auth2Store.checkAuthStatus();
+    //await authStore.checkAuthStatus();
 
-    console.log("auth2Store.user.name", auth2Store.user?.name);
-    console.log("auth2Store.isAuthenticated", auth2Store.isAuthenticated);
+    console.log("authStore.user.name", authStore.user?.name);
+    console.log("authStore.isAuthenticated", authStore.isAuthenticated);
 
     if (
         (to.path === "/account/login" || to.path === "/account/signup") &&
-        !!auth2Store.isAuthenticated
+        !!authStore.isAuthenticated
     ) {
         return navigateTo("/account/profile");
     }

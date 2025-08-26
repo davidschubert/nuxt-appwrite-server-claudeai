@@ -1,35 +1,13 @@
 <template>
     <div class="container font-sans">
         <div class="space-y-4">
-            <h1 class="text-4xl font-bold text-primary">
-                Protected Profile
-            </h1>
-            <p>Du bist eingeloggt und in einem abgesicherten Bereich.</p>
-            <UButton @click="signOut" color="primary">Sign Out</UButton>
-            <pre>{{ userStore.myUser }}</pre>
+            <h1 class="text-4xl font-bold text-primary">Weiterleitung...</h1>
+            <p>Diese Seite wurde zur neuen Profil-Seite weitergeleitet.</p>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-definePageMeta({
-    middleware: ["protect-auth"],
-});
-
-const userStore = useUserStore();
-
-const signOut = async () => {
-    await userStore.signOut();
-
-    localStorage.setItem(
-        "logoutToast",
-        JSON.stringify({
-            title: "Logout erfolgreich",
-            description: "Du hast dich erfolgreich ausgeloggt!",
-            color: "green",
-        })
-    );
-
-    useRouter().go(0);
-};
+// Redirect legacy /my/profile route to new Appwrite profile
+await navigateTo('/account/profile');
 </script>

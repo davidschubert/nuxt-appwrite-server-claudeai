@@ -1,9 +1,9 @@
 export default defineNuxtRouteMiddleware(async () => {
     // @ts-ignore Nuxt Auto-Import
-    const auth2Store = useAuth2Store();
+    const authStore = useAuthStore();
     try {
-        if (!auth2Store.isAuthenticated && !auth2Store.isLoading) {
-            await auth2Store.getUser();
+        if (!authStore.isAuthenticated && !authStore.isLoading) {
+            await authStore.getUser();
         }
     } catch (error) {
         // still allow navigation; optional: handle/log

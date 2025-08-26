@@ -5,14 +5,13 @@
             <NuxtPage />
         </UApp>
     </NuxtLayout>
-    <UNotifications />
 </template>
 
 <script setup>
 // Auth
-/* const auth2Store = useAuth2Store();
+/* const authStore = useAuthStore();
 onMounted(() => {
-    auth2Store.checkAuthStatus();
+    authStore.checkAuthStatus();
 }); */
 
 // Color settings

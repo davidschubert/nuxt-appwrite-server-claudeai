@@ -34,6 +34,13 @@ export default defineAppConfig({
         },
         button: {
             rounded: "rounded-full",
+            slots: {
+                base: 'font-medium'
+            },
+            defaultVariants: {
+                size: 'md',
+                color: 'primary'
+            }
         },
     },
 });

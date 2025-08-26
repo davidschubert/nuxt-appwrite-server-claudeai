@@ -18,7 +18,11 @@ export default defineNuxtConfig({
     modules: ["@pinia/nuxt", "@nuxt/ui"],
 
     // CSS
-    css: ["~/assets/css/main.css"],
+    css: ['~/assets/css/main.css'],
+
+    ui: {
+        fonts: false
+    },
 
     // Components auto-import
     components: [{ path: "~/components", pathPrefix: true }],

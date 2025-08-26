@@ -4,14 +4,14 @@
             <h1 class="text-9xl">
                 <FunGreetingmessage />
             </h1>
-            <div v-if="auth2Store.isLoading">
+            <div v-if="authStore.isLoading">
                 <USkeleton class="h-6 w-52" />
             </div>
-            <div v-else-if="!auth2Store.isAuthenticated">
+            <div v-else-if="!authStore.isAuthenticated">
                 <p>Bitte melden Sie sich an.</p>
             </div>
             <div v-else>
-                <p>Wie geht es Dir, {{ auth2Store.user?.name }}</p>
+                <p>Wie geht es Dir, {{ authStore.user?.name }}</p>
             </div>
         </UContainer>
     </section>
@@ -90,5 +90,5 @@
 </template>
 
 <script setup lang="ts">
-const auth2Store = useAuth2Store();
+const authStore = useAuthStore();
 </script>

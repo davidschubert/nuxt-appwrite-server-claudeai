@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const auth2Store = useAuth2Store();
-const { isAuthenticated } = storeToRefs(auth2Store);
+const authStore = useAuthStore();
+const { isAuthenticated } = storeToRefs(authStore);
 </script>
 
 <template>
@@ -10,7 +10,7 @@ const { isAuthenticated } = storeToRefs(auth2Store);
                 to="/"
                 class="text-2xl mr-6"
                 active-class="text-primary"
-                inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                inactive-class="text-neutral-500 dark:text-neutral-400 hover:text-gray-700 dark:hover:text-gray-200"
             >
                 Hawaii Studio
             </ULink>
@@ -22,7 +22,7 @@ const { isAuthenticated } = storeToRefs(auth2Store);
                 <UButton
                     variant="ghost"
                     to="/protected"
-                    color="green"
+                    color="success"
                     icon="i-heroicons-lock-open-solid"
                     trailing
                     >Protected</UButton
@@ -32,7 +32,7 @@ const { isAuthenticated } = storeToRefs(auth2Store);
                 <UButton
                     variant="ghost"
                     to="/protected"
-                    color="red"
+                    color="error"
                     icon="i-heroicons-lock-closed-solid"
                     trailing
                     >Protected</UButton

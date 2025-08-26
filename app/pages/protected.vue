@@ -5,7 +5,7 @@ definePageMeta({
     description: "Protected Page",
 });
 
-const auth2Store = useAuth2Store();
+const authStore = useAuthStore();
 </script>
 
 <template>
@@ -13,14 +13,14 @@ const auth2Store = useAuth2Store();
         <UContainer>
             <h1 class="text-xl mb-4">Protected Page with Pinia Auth</h1>
             <ClientOnly>
-                <template v-if="auth2Store.isLoading">
+                <template v-if="authStore.isLoading">
                     <p>Loading...</p>
                 </template>
 
-                <template v-else-if="auth2Store.isAuthenticated">
+                <template v-else-if="authStore.isAuthenticated">
                     <p>Du bist eingeloggt.</p>
                     <br />
-                    <pre>{{ auth2Store.user }}</pre>
+                    <pre>{{ authStore.user }}</pre>
                 </template>
 
                 <template v-else>

@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-const auth2Store = useAuth2Store();
+const authStore = useAuthStore();
 
 const formatDate = (dateString: string | undefined) => {
     if (!dateString) return "Nicht verfügbar";
@@ -17,13 +17,13 @@ const formatDate = (dateString: string | undefined) => {
 };
 
 const userInfoItems = computed(() => {
-    const user = auth2Store.user;
+    const user = authStore.user;
     if (!user) return [];
 
     return [
         { label: "Name", value: user.name || "Nicht angegeben" },
         { label: "E-Mail", value: user.email || "Nicht angegeben" },
-        { label: "User ID", value: user.id || user.$id || "Nicht angegeben" },
+        { label: "User ID", value: user.$id || "Nicht angegeben" },
         { label: "Erstellt am", value: formatDate(user.$createdAt.toString()) },
         {
             label: "Zuletzt aktualisiert",

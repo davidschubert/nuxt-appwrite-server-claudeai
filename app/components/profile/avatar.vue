@@ -1,13 +1,13 @@
 <script setup lang="ts">
-const auth2Store = useAuth2Store();
+const authStore = useAuthStore();
 
-const userName = computed(() => auth2Store.user?.name ?? "User");
+const userName = computed(() => authStore.user?.name ?? "User");
 const profileLinkLabel = computed(() => `View profile of ${userName.value}`);
 </script>
 
 <template>
     <NuxtLink
-        v-if="auth2Store.isAuthenticated && auth2Store.user"
+        v-if="authStore.isAuthenticated && authStore.user"
         to="/account/profile"
         :aria-label="profileLinkLabel"
     >

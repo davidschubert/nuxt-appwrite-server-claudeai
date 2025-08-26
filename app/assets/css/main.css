@@ -1,2 +1,347 @@
 @import "tailwindcss";
+
+/* 
+  Tailwind v4: Custom Colors via @theme
+  - erzeugt Klassen wie bg-fleava-*-500, text-fleava-*-600, ring-fleava-*-400, etc.
+*/
+@theme {
+  /* fleava-green-mist */
+  --color-fleava-green-mist-50: #f6f7ee;
+  --color-fleava-green-mist-100: #ebedda;
+  --color-fleava-green-mist-200: #d5dbb6;
+  --color-fleava-green-mist-300: #bcc690;
+  --color-fleava-green-mist-400: #a2af6c;
+  --color-fleava-green-mist-500: #85944e;
+  --color-fleava-green-mist-600: #68753b;
+  --color-fleava-green-mist-700: #505a31;
+  --color-fleava-green-mist-800: #42492b;
+  --color-fleava-green-mist-900: #394027;
+  --color-fleava-green-mist-950: #1d2112;
+
+  /* fleava-frangipani */
+  --color-fleava-frangipani-50: #fff7ed;
+  --color-fleava-frangipani-100: #ffeed5;
+  --color-fleava-frangipani-200: #ffdbaf;
+  --color-fleava-frangipani-300: #ffbc72;
+  --color-fleava-frangipani-400: #fd953a;
+  --color-fleava-frangipani-500: #fc7613;
+  --color-fleava-frangipani-600: #ed5a09;
+  --color-fleava-frangipani-700: #c4430a;
+  --color-fleava-frangipani-800: #9c3510;
+  --color-fleava-frangipani-900: #7d2e11;
+  --color-fleava-frangipani-950: #441506;
+
+  /* fleava-flesh */
+  --color-fleava-flesh-50: #fff5ed;
+  --color-fleava-flesh-100: #ffe7d5;
+  --color-fleava-flesh-200: #ffcaa7;
+  --color-fleava-flesh-300: #ffa772;
+  --color-fleava-flesh-400: #fd773a;
+  --color-fleava-flesh-500: #fc5313;
+  --color-fleava-flesh-600: #ed3809;
+  --color-fleava-flesh-700: #c4260a;
+  --color-fleava-flesh-800: #9c2010;
+  --color-fleava-flesh-900: #7d1d11;
+  --color-fleava-flesh-950: #440b06;
+
+  /* fleava-wax-flower */
+  --color-fleava-wax-flower-50: #fef5f2;
+  --color-fleava-wax-flower-100: #ffe9e1;
+  --color-fleava-wax-flower-200: #ffd6c8;
+  --color-fleava-wax-flower-300: #ffb69c;
+  --color-fleava-wax-flower-400: #fd926c;
+  --color-fleava-wax-flower-500: #f56e3e;
+  --color-fleava-wax-flower-600: #e25320;
+  --color-fleava-wax-flower-700: #be4317;
+  --color-fleava-wax-flower-800: #9d3a17;
+  --color-fleava-wax-flower-900: #82351a;
+  --color-fleava-wax-flower-950: #471908;
+
+  /* fleava-tropical-blue */
+  --color-fleava-tropical-blue-50: #eff5ff;
+  --color-fleava-tropical-blue-100: #dae8ff;
+  --color-fleava-tropical-blue-200: #c1d9ff;
+  --color-fleava-tropical-blue-300: #91bfff;
+  --color-fleava-tropical-blue-400: #5e9cfc;
+  --color-fleava-tropical-blue-500: #3876f9;
+  --color-fleava-tropical-blue-600: #2256ee;
+  --color-fleava-tropical-blue-700: #1a42db;
+  --color-fleava-tropical-blue-800: #1c36b1;
+  --color-fleava-tropical-blue-900: #1c338c;
+  --color-fleava-tropical-blue-950: #162055;
+
+  /* fleava-parchment */
+  --color-fleava-parchment-50: #faf8f2;
+  --color-fleava-parchment-100: #f4efe0;
+  --color-fleava-parchment-200: #eae1c5;
+  --color-fleava-parchment-300: #d9c798;
+  --color-fleava-parchment-400: #c9ab6e;
+  --color-fleava-parchment-500: #be9651;
+  --color-fleava-parchment-600: #b08146;
+  --color-fleava-parchment-700: #93683b;
+  --color-fleava-parchment-800: #775535;
+  --color-fleava-parchment-900: #60462e;
+  --color-fleava-parchment-950: #332317;
+
+  /* fleava-bone */
+  --color-fleava-bone-50: #f9f6f3;
+  --color-fleava-bone-100: #f2eae2;
+  --color-fleava-bone-200: #e0ccbb;
+  --color-fleava-bone-300: #d3b59e;
+  --color-fleava-bone-400: #c09277;
+  --color-fleava-bone-500: #b3795c;
+  --color-fleava-bone-600: #a56851;
+  --color-fleava-bone-700: #8a5344;
+  --color-fleava-bone-800: #70453c;
+  --color-fleava-bone-900: #5b3a33;
+  --color-fleava-bone-950: #301c1a;
+
+  /* fleava-just-right */
+  --color-fleava-just-right-50: #fbf7f5;
+  --color-fleava-just-right-100: #f8eee8;
+  --color-fleava-just-right-200: #f3e0d5;
+  --color-fleava-just-right-300: #ebcdbc;
+  --color-fleava-just-right-400: #dbaa8e;
+  --color-fleava-just-right-500: #cb8c68;
+  --color-fleava-just-right-600: #b6724c;
+  --color-fleava-just-right-700: #985e3d;
+  --color-fleava-just-right-800: #7e5036;
+  --color-fleava-just-right-900: #6a4632;
+  --color-fleava-just-right-950: #392316;
+
+  /* fleava-malta */
+  --color-fleava-malta-50: #f8f6f4;
+  --color-fleava-malta-100: #efebe5;
+  --color-fleava-malta-200: #ddd5cb;
+  --color-fleava-malta-300: #c5b5a5;
+  --color-fleava-malta-400: #b19986;
+  --color-fleava-malta-500: #a1826e;
+  --color-fleava-malta-600: #947262;
+  --color-fleava-malta-700: #7b5f53;
+  --color-fleava-malta-800: #654e47;
+  --color-fleava-malta-900: #53413b;
+  --color-fleava-malta-950: #2c211e;
+
+  /* fleava-silver-chalice */
+  --color-fleava-silver-chalice-50: #f7f7f7;
+  --color-fleava-silver-chalice-100: #ededed;
+  --color-fleava-silver-chalice-200: #dfdfdf;
+  --color-fleava-silver-chalice-300: #c8c8c8;
+  --color-fleava-silver-chalice-400: #aaaaaa;
+  --color-fleava-silver-chalice-500: #999999;
+  --color-fleava-silver-chalice-600: #888888;
+  --color-fleava-silver-chalice-700: #7b7b7b;
+  --color-fleava-silver-chalice-800: #676767;
+  --color-fleava-silver-chalice-900: #545454;
+  --color-fleava-silver-chalice-950: #363636;
+
+  /* fleava-navajo-white */
+  --color-fleava-navajo-white-50: #fff8ed;
+  --color-fleava-navajo-white-100: #fff0d5;
+  --color-fleava-navajo-white-200: #ffdda8;
+  --color-fleava-navajo-white-300: #ffc472;
+  --color-fleava-navajo-white-400: #fda03a;
+  --color-fleava-navajo-white-500: #fc8413;
+  --color-fleava-navajo-white-600: #ed6809;
+  --color-fleava-navajo-white-700: #c44e0a;
+  --color-fleava-navajo-white-800: #9c3d10;
+  --color-fleava-navajo-white-900: #7d3411;
+  --color-fleava-navajo-white-950: #441906;
+
+  /* fleava-moon-raker */
+  --color-fleava-moon-raker-50: #faf5ff;
+  --color-fleava-moon-raker-100: #f2e8ff;
+  --color-fleava-moon-raker-200: #e8d6ff;
+  --color-fleava-moon-raker-300: #d5b4fe;
+  --color-fleava-moon-raker-400: #bc84fc;
+  --color-fleava-moon-raker-500: #a255f7;
+  --color-fleava-moon-raker-600: #8c33ea;
+  --color-fleava-moon-raker-700: #7822ce;
+  --color-fleava-moon-raker-800: #6621a8;
+  --color-fleava-moon-raker-900: #541c87;
+  --color-fleava-moon-raker-950: #380764;
+
+  /* fleava-steel-gray */
+  --color-fleava-steel-gray-50: #f4f5fa;
+  --color-fleava-steel-gray-100: #e6e8f3;
+  --color-fleava-steel-gray-200: #d3d6ea;
+  --color-fleava-steel-gray-300: #b4badc;
+  --color-fleava-steel-gray-400: #9097ca;
+  --color-fleava-steel-gray-500: #767abb;
+  --color-fleava-steel-gray-600: #6463ad;
+  --color-fleava-steel-gray-700: #5c589d;
+  --color-fleava-steel-gray-800: #514c81;
+  --color-fleava-steel-gray-900: #434068;
+  --color-fleava-steel-gray-950: #29273c;
+
+  /* fleava-mirage */
+  --color-fleava-mirage-50: #f2f6fc;
+  --color-fleava-mirage-100: #e2ecf7;
+  --color-fleava-mirage-200: #cbdef2;
+  --color-fleava-mirage-300: #a7c9e9;
+  --color-fleava-mirage-400: #7eacdc;
+  --color-fleava-mirage-500: #5f90d2;
+  --color-fleava-mirage-600: #4b76c5;
+  --color-fleava-mirage-700: #4164b4;
+  --color-fleava-mirage-800: #3a5393;
+  --color-fleava-mirage-900: #334775;
+  --color-fleava-mirage-950: #181f32;
+
+  /* fleava-heavy-metal */
+  --color-fleava-heavy-metal-50: #f5f8f5;
+  --color-fleava-heavy-metal-100: #dfe8df;
+  --color-fleava-heavy-metal-200: #bfd0c1;
+  --color-fleava-heavy-metal-300: #97b19a;
+  --color-fleava-heavy-metal-400: #719075;
+  --color-fleava-heavy-metal-500: #57755c;
+  --color-fleava-heavy-metal-600: #445d49;
+  --color-fleava-heavy-metal-700: #394c3d;
+  --color-fleava-heavy-metal-800: #303f33;
+  --color-fleava-heavy-metal-900: #273129;
+  --color-fleava-heavy-metal-950: #151e16;
+
+  /* fleava-log-cabin */
+  --color-fleava-log-cabin-50: #f3f6f3;
+  --color-fleava-log-cabin-100: #e5e9e2;
+  --color-fleava-log-cabin-200: #cad4c6;
+  --color-fleava-log-cabin-300: #a4b69f;
+  --color-fleava-log-cabin-400: #7a9374;
+  --color-fleava-log-cabin-500: #597554;
+  --color-fleava-log-cabin-600: #435b40;
+  --color-fleava-log-cabin-700: #354933;
+  --color-fleava-log-cabin-800: #2c3b2a;
+  --color-fleava-log-cabin-900: #1d271c;
+  --color-fleava-log-cabin-950: #141b13;
+
+  /* fleava-rangoon-green */
+  --color-fleava-rangoon-green-50: #f7f7f6;
+  --color-fleava-rangoon-green-100: #e6e5e1;
+  --color-fleava-rangoon-green-200: #cdcbc2;
+  --color-fleava-rangoon-green-300: #aca99c;
+  --color-fleava-rangoon-green-400: #8a8777;
+  --color-fleava-rangoon-green-500: #6f6d5d;
+  --color-fleava-rangoon-green-600: #585749;
+  --color-fleava-rangoon-green-700: #48473d;
+  --color-fleava-rangoon-green-800: #3c3b33;
+  --color-fleava-rangoon-green-900: #34332d;
+  --color-fleava-rangoon-green-950: #23231d;
+
+  /* fleava-mine-shaft */
+  --color-fleava-mine-shaft-50: #f4f4f2;
+  --color-fleava-mine-shaft-100: #e4e2dd;
+  --color-fleava-mine-shaft-200: #cac7be;
+  --color-fleava-mine-shaft-300: #aca698;
+  --color-fleava-mine-shaft-400: #948b7b;
+  --color-fleava-mine-shaft-500: #857b6d;
+  --color-fleava-mine-shaft-600: #72685c;
+  --color-fleava-mine-shaft-700: #5c534c;
+  --color-fleava-mine-shaft-800: #504843;
+  --color-fleava-mine-shaft-900: #473f3c;
+  --color-fleava-mine-shaft-950: #2b2624;
+
+  /* fleava-masala */
+  --color-fleava-masala-50: #f4f3f2;
+  --color-fleava-masala-100: #e3e1de;
+  --color-fleava-masala-200: #c9c3bf;
+  --color-fleava-masala-300: #aaa09a;
+  --color-fleava-masala-400: #92847d;
+  --color-fleava-masala-500: #83756f;
+  --color-fleava-masala-600: #70615e;
+  --color-fleava-masala-700: #5b4e4d;
+  --color-fleava-masala-800: #4f4544;
+  --color-fleava-masala-900: #403838;
+  --color-fleava-masala-950: #272121;
+
+  /* fleava-shark */
+  --color-fleava-shark-50: #f6f7f9;
+  --color-fleava-shark-100: #eceff2;
+  --color-fleava-shark-200: #d5dbe2;
+  --color-fleava-shark-300: #b0bbc9;
+  --color-fleava-shark-400: #8597ab;
+  --color-fleava-shark-500: #657992;
+  --color-fleava-shark-600: #516278;
+  --color-fleava-shark-700: #424f62;
+  --color-fleava-shark-800: #394453;
+  --color-fleava-shark-900: #333b47;
+  --color-fleava-shark-950: #242932;
+
+  /* fleava-zeus */
+  --color-fleava-zeus-50: #f5f5f1;
+  --color-fleava-zeus-100: #e5e5dc;
+  --color-fleava-zeus-200: #cbccbc;
+  --color-fleava-zeus-300: #afaf95;
+  --color-fleava-zeus-400: #989877;
+  --color-fleava-zeus-500: #8a8768;
+  --color-fleava-zeus-600: #757159;
+  --color-fleava-zeus-700: #5f5a49;
+  --color-fleava-zeus-800: #524d41;
+  --color-fleava-zeus-900: #48433b;
+  --color-fleava-zeus-950: #2e2a24;
+
+  /* fleava-oil */
+  --color-fleava-oil-50: #f7f6ef;
+  --color-fleava-oil-100: #ebe8d6;
+  --color-fleava-oil-200: #d8d3b0;
+  --color-fleava-oil-300: #c2b682;
+  --color-fleava-oil-400: #b09d5f;
+  --color-fleava-oil-500: #a18a51;
+  --color-fleava-oil-600: #8a7144;
+  --color-fleava-oil-700: #6f5739;
+  --color-fleava-oil-800: #5f4a35;
+  --color-fleava-oil-900: #524031;
+  --color-fleava-oil-950: #2c2018;
+
+  /* fleava-blue-whale */
+  --color-fleava-blue-whale-50: #f1f8fe;
+  --color-fleava-blue-whale-100: #e3effb;
+  --color-fleava-blue-whale-200: #c0e0f7;
+  --color-fleava-blue-whale-300: #89c7f0;
+  --color-fleava-blue-whale-400: #4aaae6;
+  --color-fleava-blue-whale-500: #2390d4;
+  --color-fleava-blue-whale-600: #1572b4;
+  --color-fleava-blue-whale-700: #125b92;
+  --color-fleava-blue-whale-800: #134d79;
+  --color-fleava-blue-whale-900: #154265;
+  --color-fleava-blue-whale-950: #102f4b;
+
+  /* fleava-woodsmoke */
+  --color-fleava-woodsmoke-50: #f6f6f6;
+  --color-fleava-woodsmoke-100: #e7e7e7;
+  --color-fleava-woodsmoke-200: #d1d1d1;
+  --color-fleava-woodsmoke-300: #b0b0b0;
+  --color-fleava-woodsmoke-400: #888888;
+  --color-fleava-woodsmoke-500: #6d6d6d;
+  --color-fleava-woodsmoke-600: #5d5d5d;
+  --color-fleava-woodsmoke-700: #4f4f4f;
+  --color-fleava-woodsmoke-800: #454545;
+  --color-fleava-woodsmoke-900: #3d3d3d;
+  --color-fleava-woodsmoke-950: #191919;
+
+  /* fleava-birch */
+  --color-fleava-birch-50: #f4f5f1;
+  --color-fleava-birch-100: #e5e6db;
+  --color-fleava-birch-200: #ccceba;
+  --color-fleava-birch-300: #b0b292;
+  --color-fleava-birch-400: #9c9c73;
+  --color-fleava-birch-500: #8d8b65;
+  --color-fleava-birch-600: #787456;
+  --color-fleava-birch-700: #615b47;
+  --color-fleava-birch-800: #544e3f;
+  --color-fleava-birch-900: #4a4539;
+  --color-fleava-birch-950: #373229;
+
+  /* fleava-pancho */
+  --color-fleava-pancho-50: #fcf7f0;
+  --color-fleava-pancho-100: #f8ebdc;
+  --color-fleava-pancho-200: #ecc8a2;
+  --color-fleava-pancho-300: #e7b88a;
+  --color-fleava-pancho-400: #dc925b;
+  --color-fleava-pancho-500: #d4773b;
+  --color-fleava-pancho-600: #c66030;
+  --color-fleava-pancho-700: #a54a29;
+  --color-fleava-pancho-800: #843d28;
+  --color-fleava-pancho-900: #6b3323;
+  --color-fleava-pancho-950: #391911;
+}
+
 @import "@nuxt/ui";

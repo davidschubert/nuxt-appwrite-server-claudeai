@@ -16,7 +16,7 @@ export interface User {
     phoneVerification: boolean;
     mfa: boolean;
     prefs: Prefs;
-    targets: Target[];
+    targets: Targets[];
     accessedAt: Date;
 }
 

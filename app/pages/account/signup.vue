@@ -11,7 +11,7 @@
                     :state="state"
                     @submit.prevent="onSubmit"
                 >
-                    <UFormGroup
+                    <UFormField
                         label="Name"
                         name="name"
                         class="mb-4"
@@ -28,8 +28,8 @@
                                     : undefined
                             "
                         />
-                    </UFormGroup>
-                    <UFormGroup
+                    </UFormField>
+                    <UFormField
                         label="E-Mail"
                         name="email"
                         class="mb-4"
@@ -47,8 +47,8 @@
                                     : undefined
                             "
                         />
-                    </UFormGroup>
-                    <UFormGroup
+                    </UFormField>
+                    <UFormField
                         label="Passwort"
                         name="password"
                         class="mb-4"
@@ -67,7 +67,7 @@
                                     : undefined
                             "
                         />
-                    </UFormGroup>
+                    </UFormField>
                     <UButton type="submit" color="primary" :loading="loading"
                         >Registrieren</UButton
                     >
@@ -80,7 +80,7 @@
                     <ULink
                         to="/account/login"
                         active-class="text-primary"
-                        inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                        inactive-class="text-neutral-500 dark:text-neutral-400 hover:text-gray-700 dark:hover:text-gray-200"
                     >
                         Einloggen
                     </ULink>
@@ -141,12 +141,12 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         });
 
         if (response.success) {
-            await authStore.checkAuth();
+            await authStore.getUser();
 
             toast.add({
                 title: "Erfolg",
                 description: "Registrierung war erfolgreich!",
-                color: "green",
+                color: "success",
             });
 
             await navigateTo("/profile");
@@ -155,7 +155,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         }
     } catch (error) {
         if (
-            error?.message?.includes(
+            (error as any)?.message?.includes(
                 "A user with the same id, email, or phone already exists in this project"
             )
         ) {
@@ -165,7 +165,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
                 title: "Fehler",
                 description:
                     "Ein Benutzer mit dieser E-Mail-Adresse existiert bereits. Bitte verwenden Sie eine andere E-Mail-Adresse oder versuchen Sie sich anzumelden.",
-                color: "red",
+                color: "error",
             });
         } else {
             console.error("Registrierungsfehler:", error);
@@ -173,7 +173,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             toast.add({
                 title: "Fehler",
                 description: "Registrierung fehlgeschlagen.",
-                color: "red",
+                color: "error",
             });
         }
     } finally {
